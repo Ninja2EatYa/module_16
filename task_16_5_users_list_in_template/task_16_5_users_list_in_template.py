@@ -27,6 +27,7 @@ async def get_users(request: Request, user_id: int) -> HTMLResponse:
     except IndexError:
         raise HTTPException(status_code=404, detail="User not found")
 
+
 @app.post('/user/{username}/{age}')
 async def post_user(username: str, age: int):
     new_user = User(id=len(users) + 1, username=username, age=age)
